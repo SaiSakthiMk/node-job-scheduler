@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Job Scheduler</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+</head>
+<body>
+  <div class="page-bg"></div>
+
+  <main class="container" id="app">
+    <header class="header">
+      <h1 class="title">Job Scheduler</h1>
+      <p class="subtitle">Schedule tasks easily — works with your backend</p>
+    </header>
+
+    <nav class="tabs" role="navigation" aria-label="Main tabs">
+      <button class="tab-btn" data-tab="registerTab">Register</button>
+      <button class="tab-btn" data-tab="loginTab">Login</button>
+      <button class="tab-btn" data-tab="jobsTab">Jobs</button>
+    </nav>
+
+    <section id="registerTab" class="tab panel">
+      <h2>Register</h2>
+      <input id="regEmail" placeholder="Email" />
+      <input id="regPass" type="password" placeholder="Password" />
+      <button class="primary-btn" onclick="register()">Register</button>
+      <p class="msg" id="regMsg"></p>
+    </section>
+
+    <section id="loginTab" class="tab panel hidden">
+      <h2>Login</h2>
+      <input id="logEmail" placeholder="Email" />
+      <input id="logPass" type="password" placeholder="Password" />
+      <button class="primary-btn" onclick="login()">Login</button>
+      <p class="msg" id="logMsg"></p>
+    </section>
+
+    <section id="jobsTab" class="tab panel hidden">
+      <h2>Jobs</h2>
+      <input id="jobName" placeholder="Job Name" />
+      <input id="jobCron" placeholder="Cron Expression (e.g. */2 * * * *)" />
+      <div class="row">
+        <button class="primary-btn" onclick="addJob()">Add Job</button>
+        <button class="ghost-btn" onclick="logout()">Logout</button>
+      </div>
+      <p class="msg" id="jobMsg"></p>
+
+      <h3>Your Jobs</h3>
+      <ul id="jobList" class="job-list"></ul>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
